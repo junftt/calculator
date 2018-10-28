@@ -1,16 +1,6 @@
 window.onload = function () {
-    //JS_VAR
+    //JS_var
     var monitor = document.getElementById('monitor');
-    var n1 = document.getElementById('b1');
-    var n2 = document.getElementById('b2');
-    var n3 = document.getElementById('b3');
-    var n4 = document.getElementById('b4');
-    var n5 = document.getElementById('b5');
-    var n6 = document.getElementById('b6');
-    var n7 = document.getElementById('b7');
-    var n8 = document.getElementById('b8');
-    var n9 = document.getElementById('b9');
-    var n0 = document.getElementById('b0');
 
     var bplu = document.getElementById('bplu');
     var bmi = document.getElementById('bmi');
@@ -25,11 +15,11 @@ window.onload = function () {
     var eq_operand2 = null;
     var eq_op = null;
 
-    //
     function updateDisplay(x) {
         monitor.innerText = x;
     }
 
+    //reset
     bclr.onclick = function () {
         operand1 = 0;
         operand2 = null;
@@ -60,44 +50,12 @@ window.onload = function () {
 
     //BUTTON_INPUT
 
-    n1.onclick = function () {
-        onDigit(1);
+    function onClick(){
+       onDigit(parseInt(this.getAttribute("value")));
     }
 
-    n2.onclick = function () {
-        onDigit(2);
-    }
-
-    n3.onclick = function () {
-        onDigit(3);
-    }
-
-    n4.onclick = function () {
-        onDigit(4);
-    }
-
-    n5.onclick = function () {
-        onDigit(5);
-    }
-
-    n6.onclick = function () {
-        onDigit(6);
-    }
-
-    n7.onclick = function () {
-        onDigit(7);
-    }
-
-    n8.onclick = function () {
-        onDigit(8);
-    }
-
-    n9.onclick = function () {
-        onDigit(9);
-    }
-
-    n0.onclick = function () {
-        onDigit(0);
+    for(i = 0; i<10; i++){
+        document.getElementById("b" + i).onclick = onClick;
     }
 
     //BUTTON_CULCULATE
@@ -132,25 +90,18 @@ window.onload = function () {
         eq_op = null;
     }
 
-
-
     bplu.onclick = function () {
         onOp("+");
     }
-
     bmi.onclick = function () {
         onOp("-");
     }
-
     bmul.onclick = function () {
         onOp("*");
     }
-
     bex.onclick = function () {
         onOp("/");
     }
-
-
 
     beql.onclick = function () {
         if (cur_op != null) {
